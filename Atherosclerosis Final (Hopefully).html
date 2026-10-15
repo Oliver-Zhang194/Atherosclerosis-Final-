@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atherosclerosis: the silent disease</title>
+<meta name="description" content="Atherosclerosis: the silent disease. What it is, how plaques form, risk factors, prevention, symptoms and treatments.">
+
+<style>
+/*red colour scheleme*/
+:root {
+  --red: #B71C1C;        
+  --red-dark: #7F0000;  
+  --tint: #FDF3F3;       
+  --ink: #222222;       
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-padding-top: 4.5rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+/*fonts and text appearance*/
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/*border overlaping*/
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.band {
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+}
+.band.alt {
+  background: var(--tint);
+}
+.split {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+}
+
+/*button working, skip to contennt*/
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--white);
+  padding: .75rem 1rem;
+  font-weight: 700;
+  z-index: 100;
+}
+.skip:focus {
+  left: 0;
+}
+
+/*body text aethetics*/
+h1, h2, h3, h4 {
+  color: var(--red);
+  font-weight: 700;
+  line-height: 1.1;
+}
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  margin: 0 0 1.25rem;
+  padding-left: .8rem;
+  border-left: 14px solid var(--red);
+}
+h2.h2-large {
+  font-size: clamp(2.3rem, 6vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+h3 {
+  font-size: 1.4rem;
+  margin: 0 0 .5rem;
+}
+p {
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+a {
+  color: var(--red);
+}
+abbr[title] {
+  text-decoration: underline dotted var(--red);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/*header, buttons, and big text*/
+.topbar {
+  height: 16px;
+  background: var(--red);
+}
+.hero {
+  padding: clamp(2.5rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3.5rem);
+  background: var(--white);
+}
+.hero h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(2.8rem, 10vw, 7rem);
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  /*thickens atherosclerosis*/
+  -webkit-text-stroke: 1.5px var(--red);
+}
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 9rem;
+  height: 14px;
+  margin-top: 1.5rem;
+  background: var(--red);
+}
+
+/*button formating*/
+.onpage {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--red);
+}
+.onpage .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem 1rem;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+.onpage-title {
+  margin: 0;
+  padding-right: 1rem;
+  border-right: 3px solid var(--white);
+  color: var(--white);
+  font-weight: 700;
+}
+.onpage ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.onpage a {
+  display: block;
+  padding: .35rem .7rem;
+  border: 2px solid transparent;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.onpage a:hover {
+  background: var(--white);
+  color: var(--red);
+}
+.onpage a:focus-visible,
+.cta a:focus-visible,
+.foot a:focus-visible {
+  outline-color: var(--white);
+}
+@media (max-width: 700px) {
+  .onpage { position: static; }
+  html { scroll-padding-top: 1rem; }
+}
+
+/*fact and figures formating*/
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  border: 3px solid var(--red);
+  border-top-width: 14px;
+  background: var(--white);
+}
+.stat-pre {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.stat-num {
+  color: var(--red);
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+.stat-text {
+  margin-top: .25rem;
+}
+
+/*img format and ref*/
+.img-fig {
+  margin: 0;
+}
+.img-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--red);
+  background: var(--white);
+}
+.img-cite {
+  margin-top: .4rem;
+  font-size: .95rem;
+  line-height: 1.35;
+}
+
+/*image moves with drop down*/
+.img-slot {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  aspect-ratio: 4 / 3;
+  padding: 1rem;
+  border: 3px dashed var(--red);
+  background: var(--tint);
+  color: var(--red-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+.img-slot:has(img) {
+  padding: 0;
+  border-style: solid;
+}
+.img-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*drop down movement*/
+.acc {
+  margin: 0 0 .75rem;
+  border: 3px solid var(--red);
+  background: var(--white);
+}
+.acc summary {
+  position: relative;
+  display: block;
+  padding: 1rem 4rem 1rem 1.1rem;
+  color: var(--red);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+}
+.acc summary::-webkit-details-marker {
+  display: none;
+}
+.acc summary::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+.acc[open] summary::after {
+  content: "\2212";
+}
+.acc summary:hover,
+.acc[open] summary {
+  background: var(--tint);
+}
+.acc[open] summary {
+  border-bottom: 3px solid var(--red);
+}
+.acc-body {
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 34%);
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.1rem 1.25rem;
+}
+.acc-body p:last-child {
+  margin-bottom: 0;
+}
+.acc-body.text-only {
+  grid-template-columns: 1fr;
+}
+@media (max-width: 640px) {
+  .acc-body { grid-template-columns: 1fr; }
+}
+
+/*symprotm grop*/
+.group-label {
+  display: inline-block;
+  margin: 1.75rem 0 .9rem;
+  padding: .45rem .9rem;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/*flow chart arrows and boxes*/
+.flow {
+  max-width: 820px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.flow li {
+  position: relative;
+  counter-increment: step;
+  margin: 0 0 3.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 5.25rem;
+  border: 3px solid var(--red);
+  background: var(--white);
+}
+.flow li:last-child {
+  margin-bottom: 0;
+}
+.flow li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  background: var(--red);
+  color: var(--white);
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+/* Down arrow linking each step to the next */
+.flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -2.9rem;
+  left: 1.1rem;
+  width: 2.6rem;
+  height: 2.4rem;
+  background: var(--red);
+  clip-path: polygon(33% 0, 67% 0, 67% 45%, 100% 45%, 50% 100%, 0 45%, 33% 45%);
+}
+.flow p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Risk factor groups ---------- */
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+.risk {
+  padding: 1.25rem;
+  border: 3px solid var(--red);
+  border-top-width: 14px;
+  background: var(--white);
+}
+.risk h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+.risk p:last-child {
+  margin-bottom: 0;
+}
+/* Student statistic callout inside a risk factor card */
+.risk .risk-stat {
+  margin: 1rem 0 0;
+  padding: .75rem 1rem;
+  border-left: 8px solid var(--red);
+  background: var(--tint);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.risk-stat strong {
+  display: block;
+  color: var(--red);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+/* ---------- In-text citations ---------- */
+.acc summary .cite {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.risk .cite-only {
+  margin: .75rem 0 0;
+  font-size: 1rem;
+}
+.cta .cite-cta {
+  margin: 1rem 0 0;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+/* ---------- Emergency box ---------- */
+.alert {
+  max-width: 70ch;
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 16px solid var(--red-dark);
+  background: var(--red);
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ---------- Treatment effectiveness cards ---------- */
+.tcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.tcard {
+  padding: 1.25rem;
+  border: 3px solid var(--red);
+  border-left-width: 14px;
+  background: var(--white);
+}
+.tcard p {
+  margin: 0;
+}
+.tcard strong {
+  color: var(--red);
+}
+
+/*resource aethertics*/
+.resources {
+  display: grid;
+  gap: .75rem;
+  max-width: 70ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.resources li {
+  padding: .9rem 1.1rem;
+  border: 3px solid var(--red);
+  border-left-width: 14px;
+  background: var(--white);
+  font-weight: 700;
+}
+
+/*cta buttons and links */
+.cta {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  background: var(--red);
+  color: var(--white);
+}
+.cta h2 {
+  color: var(--white);
+  border-left-color: var(--white);
+}
+.btn {
+  display: inline-block;
+  max-width: 34rem;
+  padding: 1rem 1.5rem;
+  border: 3px solid var(--white);
+  background: var(--white);
+  color: var(--red);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--red-dark);
+  color: var(--white);
+}
+
+/*video format*/
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin: 0;
+}
+.video {
+  margin: 0;
+}
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 3px solid var(--red);
+  background: var(--ink);
+}
+.video-frame iframe,
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-frame.own {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-style: dashed;
+  background: var(--tint);
+  color: var(--red-dark);
+  font-weight: 700;
+  text-align: center;
+}
+.video-frame.own:has(iframe),
+.video-frame.own:has(video) {
+  padding: 0;
+  border-style: solid;
+  background: var(--ink);
+}
+.video figcaption {
+  margin-top: .6rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/*hanging indent*/	
+.refs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.refs li {
+  margin: 0 0 .9rem;
+  padding-left: 1.27cm;
+  text-indent: -1.27cm;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+/*footer*/
+.foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: .75rem 1.25rem;
+  background: var(--red);
+}
+.foot a {
+  padding: .25rem .9rem;
+  border: 2px solid var(--white);
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.foot a:hover {
+  background: var(--white);
+  color: var(--red);
+}
+</style>
+</head>
+
+<body id="top">
+<a class="skip" href="#main" data-nocount>Skip to content</a>
+<div class="topbar" aria-hidden="true"></div>
+
+<!--big text -->
+<header class="hero">
+  <div class="wrap">
+    <h1>Atherosclerosis: the silent disease</h1>
+  </div>
+</header>
+
+<!-- button names -->
+<nav class="onpage" aria-label="On this page" data-nocount>
+  <div class="wrap">
+    <p class="onpage-title">On this Page</p>
+    <ul>
+      <li><a href="#facts">General</a></li>
+      <li><a href="#myths">Facts and Myths</a></li>
+      <li><a href="#prevention">Prevention</a></li>
+      <li><a href="#symptoms">Symptoms</a></li>
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#references">Reference List</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- figures-->
+<section class="band" id="facts" aria-labelledby="h-facts">
+  <div class="wrap">
+    <h2 class="h2-large" id="h-facts">Facts and Figures</h2>
+    <ul class="stats">
+      <li class="stat">
+        <span class="stat-num">19.8 million</span>
+        <span class="stat-text">deaths from cardiovascular disease (CVD) in 2022 (World Health Organization [WHO], 2025)</span>
+      </li>
+      <li class="stat">
+        <span class="stat-pre">An estimated</span>
+        <span class="stat-num">57,100</span>
+        <span class="stat-text">acute coronary events in people 25 and over in 2023 (Australian Institute of Health and Welfare [AIHW], 2026)</span>
+      </li>
+      <li class="stat">
+        <span class="stat-pre">In 2024, coronary heart disease (CHD) was the underlying cause of</span>
+        <span class="stat-num">16,300</span>
+        <span class="stat-text">deaths (AIHW, 2026)</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- info-->
+<section class="band alt" id="what" aria-labelledby="h-what">
+  <div class="wrap split">
+    <div>
+      <h2 id="h-what">What Is Atherosclerosis?</h2>
+      <p>Atherosclerosis is a chronic cardiovascular condition where a hardened plaque, made of fatty substances and particularly cholesterol, forms on the lining of an artery, partially or fully obstructing blood flow (Johns Hopkins Medicine, n.d.; Victor Chang Cardiac Research Institute, 2025). Symptoms often develop later in life, most commonly after the age of 45. However, the condition progresses throughout your entire life, and symptoms can occur at any age (AIHW, 2026; Cleveland Clinic, 2024; Victor Chang Cardiac Research Institute, 2025).</p>
+    </div>
+    <!-- plaque artry img-->
+    <figure class="img-fig">
+      <img src="Atheroscleoris images/Screenshot 2026-10-08 at 12.55.56 pm.png" width="800" height="586" alt="partiall blocked artry" loading="lazy">
+      <figcaption class="img-cite">(<em>Atherosclerosis</em>, n.d.)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- fact vs myth-->
+<section class="band" id="myths" aria-labelledby="h-myths">
+  <div class="wrap">
+    <h2 id="h-myths">Myths and Truths</h2>
+
+    <details class="acc">
+      <summary>Myth: I'm too young to worry about my arteries.</summary>
+      <div class="acc-body text-only">
+        <p><strong>Truth:</strong> Atherosclerosis develops slowly and can begin as early as childhood (Victor Chang Cardiac Research Institute, 2025).</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Myth: If I feel fine, my arteries are fine.</summary>
+      <div class="acc-body text-only">
+        <p><strong>Truth:</strong> Atherosclerosis often causes no symptoms until a heart attack or stroke occurs (Cleveland Clinic, 2024; WHO, 2025).</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Myth: A healthy lifestyle can clear plaque already in my arteries.</summary>
+      <div class="acc-body text-only">
+        <p><strong>Truth:</strong> Lifestyle changes slow plaque growth but will not remove existing plaque (Victor Chang Cardiac Research Institute, 2025).</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- plaque formation-->
+<section class="band alt" id="plaques" aria-labelledby="h-plaques">
+  <div class="wrap">
+    <h2 id="h-plaques">How Do Plaques Form?</h2>
+    <ol class="flow">
+      <li>
+        <h3>Damage and Inflammation</h3>
+        <p>Plaques must form on the lining of damaged arteries (Cleveland Clinic, 2024; Mayo Clinic, 2024). Damage can occur from a plethora of other cardiovascular conditions, most notably prolonged high blood pressure (hypertension) (Cleveland Clinic, 2024; Mayo Clinic, 2024). The damaged artery triggers an immune response, where white blood cells (leukocytes) inflame the lining, roughening the surface (Cleveland Clinic, 2024; Mayo Clinic, 2024).</p>
+      </li>
+      <li>
+        <h3>LDL Build-Up</h3>
+        <p>Circulating cholesterol in blood plasma (low-density lipoprotein or LDL) can snag onto the rough surface (Complete Anatomy, 2019). Specialised leukocytes called macrophages attempt to process the relatively large LDL molecules, in the process releasing cytokines (chemical signals) that further increase inflammation in the artery (Cleveland Clinic, 2024).</p>
+      </li>
+      <li>
+        <h3>Necrotic Core and Fibrous Cap</h3>
+        <p>The macrophages, once they have processed LDL, turn into foam cells that undergo programmed cell death (apoptosis), forming the soft centre of the plaque called the necrotic core (Cleveland Clinic, 2024). Given enough time, the smooth muscle lining the lumen (hollow part) of the artery is able to form a cover over the plaque, known as the fibrous cap (Cleveland Clinic, 2024).</p>
+      </li>
+      <li>
+        <h3>Rupture and Clotting</h3>
+        <p>If the plaque ruptures, the necrotic core will become exposed and the soft center can enter the blood stream and eventually clot. This can lead to acute, life-threatening symptoms such as a heart attack or stroke if the clot blocks a coronary artery or an artery supplying the brain (Cleveland Clinic, 2024; Victor Chang Cardiac Research Institute, 2025).</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- risk factors-->
+<section class="band" id="risks" aria-labelledby="h-risks">
+  <div class="wrap">
+    <h2 id="h-risks">Risk Factors</h2>
+    <p>The most influential risk factors include:</p>
+    <div class="risk-grid">
+      <div class="risk">
+        <h3>Hypertension, Diabetes, Smoking and Alcohol Consumption</h3>
+        <p>These factors all influence inflammation and damage of the arteries, aiding in the formation of plaques (Cleveland Clinic, 2024; Mayo Clinic, 2024; WHO, 2025).</p>
+        <p class="risk-stat"><strong>36.1%</strong> of 18–24 year olds exceeded the alcohol guideline in 2022, the highest of any age group (Australian Bureau of Statistics [ABS], 2023a).</p>
+      </div>
+      <div class="risk">
+        <h3>High Cholesterol, Obesity and Unhealthy Diet (high saturated fat, sugar and sodium)</h3>
+        <p>These factors influence the amount of LDL circulating, and therefore the ability of plaques to form (Cleveland Clinic, 2024; Mayo Clinic, 2024; WHO, 2025).</p>
+        <p class="risk-stat"><strong>42.1%</strong> of 18–24 year olds were overweight or obese in 2022 (ABS, 2023b).</p>
+      </div>
+      <div class="risk">
+        <h3>Family History of Cardiovascular Disease, Age (men over 45 and women over 55) and Male Sex</h3>
+        <p class="cite-only">(AIHW, 2026; Cleveland Clinic, 2024; Mayo Clinic, 2024)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- prevention-->
+<section class="band alt" id="prevention" aria-labelledby="h-prevention">
+  <div class="wrap">
+    <h2 id="h-prevention">Prevention</h2>
+    <p>Preventative measures cannot clear existing plaques from arteries. However, they can slow down the rate at which they progress and prevent new plaques from forming (Johns Hopkins Medicine, n.d.; Victor Chang Cardiac Research Institute, 2025). After adjusting for age, the rate of acute coronary events fell by 61% between 2001 and 2023, which the AIHW links to falls in smoking, high cholesterol and high blood pressure (AIHW, 2026). The most effective prevention measures include:</p>
+
+    <details class="acc">
+      <summary>Changing to a Healthy Diet <span class="cite">(Cleveland Clinic, 2024; Victor Chang Cardiac Research Institute, 2025)</span></summary>
+      <div class="acc-body">
+        <p>Eat foods low in saturated fats, lowering circulating LDL.</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 1.02.12 pm.png" width="800" height="433" alt="Four people exercising together in a gym, with one man holding a weighted ball while three women watch and smile." loading="lazy">
+          <figcaption class="img-cite">(<em>Exercises for All Shapes and Sizes</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Quitting Smoking/Vaping and Reducing Excessive Alcohol Consumption <span class="cite">(Cleveland Clinic, 2024; WHO, 2025)</span></summary>
+      <div class="acc-body">
+        <p>Smoking damages the lining of the artery, where plaques start, and harmful alcohol use is a major risk factor for heart disease (Cleveland Clinic, 2024; WHO, 2025).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 1.05.22 pm.png" width="800" height="526" alt="smoking n stuff" loading="lazy">
+          <figcaption class="img-cite">(Lilartsy, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- symtpoms-->
+<section class="band" id="symptoms" aria-labelledby="h-symptoms">
+  <div class="wrap">
+    <h2 id="h-symptoms">Symptoms</h2>
+    <p>Long-term symptoms build up as an artery slowly narrows, while short-term symptoms appear suddenly, usually when a plaque ruptures and a clot blocks the artery (Mayo Clinic, 2024; Victor Chang Cardiac Research Institute, 2025).</p>
+
+    <h3 class="group-label">Long-Term Symptoms</h3>
+
+    <details class="acc">
+      <summary>Temporary and/or Long-Lasting Chest Pain (Angina)</summary>
+      <div class="acc-body">
+        <p>A partial blockage in a coronary artery reduces the oxygen reaching the heart, which causes pain (AIHW, 2026; Cleveland Clinic, 2024).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/understanding-the-different-types-of-chest-pain.jpg" width="398" height="266" alt="fatigued dude" loading="lazy">
+          <figcaption class="img-cite">(<em>Energy and Fatigue</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Pain or Numbness in the Extremities</summary>
+      <div class="acc-body">
+        <p>A blockage in a large artery can reduce blood flow to a limb, causing pain or numbness (Cleveland Clinic, 2024; Mayo Clinic, 2024).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 1.23.54 pm.png" width="800" height="493" alt="spidey sense fingers" loading="lazy">
+          <figcaption class="img-cite">(<em>Tingling and Numbness</em>, 2025)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <h3 class="group-label">Short-Term Symptoms</h3>
+
+    <details class="acc">
+      <summary>Dizziness, Light-Headedness, Nausea, Vomiting and Loss of Consciousness</summary>
+      <div class="acc-body">
+        <p>Reduced blood flow to the brain will lower brain function, causing the above symptoms (Cleveland Clinic, 2024; WHO, 2025).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/shutterstock_1972998752-1.webp" width="800" height="534" alt="vomiting dude" loading="lazy">
+          <figcaption class="img-cite">(<em>Nausea</em>, 2025)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Sweating</summary>
+      <div class="acc-body">
+        <p>Reduced blood flow to the heart will trigger the sympathetic nervous system (the fight-or-flight reflex), causing sweating (WHO, 2025).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Cold_sweats.jpg" width="800" height="533" alt="sweaty dude" loading="lazy">
+          <figcaption class="img-cite">(<em>Cold Sweats</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Heart Attack and Stroke</summary>
+      <div class="acc-body">
+        <p>A ruptured plaque could send a clot to a coronary artery or an artery of the brain. If it fully blocks (occludes) the vessel, the tissue will die, causing a heart attack or stroke (AIHW, 2026; Cleveland Clinic, 2024; Mayo Clinic, 2024).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 1.25.15 pm.png" width="800" height="717" alt="stroke" loading="lazy">
+          <figcaption class="img-cite">(<em>Ischemic Stroke</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <p class="alert" role="note">If you or someone else is experiencing loss of consciousness, a heart attack or a stroke, call 000 immediately </p>
+  </div>
+</section>
+
+<!-- treatment-->
+<section class="band alt" id="treatments" aria-labelledby="h-treatments">
+  <div class="wrap">
+    <h2 id="h-treatments">Treatments</h2>
+    <p>Treatments fall under the categories of medicinal and procedural (Cleveland Clinic, 2024). Four main medicines are usually prescribed for atherosclerosis. Antiplatelet and anticoagulant medicines reduce clotting around a plaque, so a rupture is less likely to block the artery. Cholesterol-lowering medicines reduce circulating LDL, so less builds up in the artery wall. Blood pressure medicines lower the force on the artery lining, so there is less damage (Cleveland Clinic, 2024; Johns Hopkins Medicine, n.d.).</p>
+    <p>Procedures are minimally to moderately invasive, and most commonly a form of angioplasty is used (Cleveland Clinic, 2024; Johns Hopkins Medicine, n.d.). Types of angioplasties include:</p>
+
+    <details class="acc">
+      <summary>Balloon</summary>
+      <div class="acc-body">
+        <p>A small balloon is inflated in the artery, opening up the lumen (Johns Hopkins Medicine, n.d.).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 12.49.58 pm.png" width="634" height="454" alt="balloon angiplasty"loading="lazy">
+          <figcaption class="img-cite">(<em>Angioplasty</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Atherectomy</summary>
+      <div class="acc-body">
+        <p>A small part of the plaque is shaved away (Johns Hopkins Medicine, n.d.).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 12.53.27 pm.png" width="800" height="448" alt="rotational angioplasty" loading="lazy">
+          <figcaption class="img-cite">(<em>Rotational Atherectomy</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Laser</summary>
+      <div class="acc-body">
+        <p>A laser is used to vaporise the plaque (Johns Hopkins Medicine, n.d.).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 12.52.37 pm.png" width="800" height="461" alt="laser angioplasty"loading="lazy">
+          <figcaption class="img-cite">(<em>Laser Angioplasty</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Coronary Artery Stent</summary>
+      <div class="acc-body">
+        <p>A metal mesh tube is used to hold open the lumen (Johns Hopkins Medicine, n.d.).</p>
+        <figure class="img-fig">
+          <img src="Atheroscleoris images/Screenshot 2026-10-08 at 12.46.17 pm.png" width="800" height="621" alt="stent" loading="lazy">
+          <figcaption class="img-cite">(<em>Coronary Artery Stent</em>, n.d.)</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <h3>Effectiveness, Pros and Cons</h3>
+    <div class="tcards">
+      <div class="tcard">
+        <p><strong>Cholesterol-lowering medicines</strong> can shrink plaques and make unstable plaques stable, but it takes aggressive treatment and removing plaque completely is very difficult (Victor Chang Cardiac Research Institute, 2025).</p>
+      </div>
+      <div class="tcard">
+        <p><strong>Angioplasty and stents</strong> can restore blood flow, but they are mainly used when a blockage is severe or the risk of complications is high (Cleveland Clinic, 2024).</p>
+      </div>
+      <div class="tcard">
+        <p><strong>A healthy lifestyle</strong> remains the best treatment, with medicines and procedures used when necessary (Victor Chang Cardiac Research Institute, 2025).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- eternal resources-->
+<section class="band" id="resources" aria-labelledby="h-resources">
+  <div class="wrap">
+    <h2 id="h-resources">Resources and Health Services</h2>
+    <ul class="resources">
+      <li>Heart Foundation Calculator: <a href="https://www.heartfoundation.org.au/heart-age-calculator">Heart Age</a>.</li>
+      <li>How to Have a Healthier Diet: <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet">Tips for eating well</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- cta and resources-->
+<section class="cta" id="heart-check" aria-labelledby="h-heart">
+  <div class="wrap">
+    <h2 id="h-heart">Check Your Heart Health Today</h2>
+    <a class="btn" href="https://www.victorchang.edu.au/heart-health-risk-assessment-guide" target="_blank" rel="noopener">Download the Heart Health Check Guide and take it to your GP.</a>
+    <p class="cite-cta">(Victor Chang Cardiac Research Institute, 2025)</p>
+  </div>
+</section>
+
+<!-- videos-->
+<section class="band alt" id="videos" aria-labelledby="h-videos" data-nocount>
+  <div class="wrap">
+    <h2 id="h-videos">Videos</h2>
+    <div class="videos">
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/njT428_JYzI" title="Atherosclerosis | Pathologies (Complete Anatomy)" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Atherosclerosis | Pathologies (Complete Anatomy, 2019)</figcaption>
+      </figure>
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/QDp6Vehjn1Q" title="Atherosclerosis: Prevention is the best medicine (Demystifying Medicine McMaster)" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Atherosclerosis: Prevention is the best medicine (Demystifying Medicine McMaster, 2016)</figcaption>
+      </figure>
+
+      <!-- ============================================================
+           YOUR OWN VIDEO. When it is ready, replace the text inside
+           the .video-frame.own box below with ONE of these:
+
+           YouTube or Vimeo embed:
+             <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Atherosclerosis campaign video" allowfullscreen></iframe>
+
+           A video file saved in the same folder as this page:
+             <video controls preload="metadata" src="campaign-video.mp4"></video>
+
+           Then update the caption underneath.
+           ============================================================ -->
+      <figure class="video">
+        <div class="video-frame own" id="own-video">
+          <video controls preload="metadata" src="Atheroscloris Video Under 3.mp4"></video>
+        </div>
+        <figcaption>Our campaign video</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+	
+<section class="band" id="references" aria-labelledby="h-references" data-nocount>
+  <div class="wrap">
+    <h2 id="h-references">Reference List</h2>
+    <ul class="refs">
+      <li><em>Angioplasty</em> [Illustration]. (n.d.). Johns Hopkins Medicine. <a href="https://www.hopkinsmedicine.org/health/treatment-tests-and-therapies/angioplasty-and-stent-placement-for-the-heart">https://www.hopkinsmedicine.org/health/treatment-tests-and-therapies/angioplasty-and-stent-placement-for-the-heart</a></li>
+      <li><em>Atherosclerosis</em> [Illustration]. (n.d.). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/16753-atherosclerosis-arterial-disease">https://my.clevelandclinic.org/health/diseases/16753-atherosclerosis-arterial-disease</a></li>
+      <li>Australian Chronic Disease Prevention Alliance. (2026). <em>Australian cardiovascular disease risk calculator</em>. <a href="https://www.cvdcheck.org.au/calculator">https://www.cvdcheck.org.au/calculator</a></li>
+      <li>Australian Institute of Health and Welfare. (2026, May 27). <em>Heart, stroke and vascular disease: Australian facts</em>. <a href="https://www.aihw.gov.au/reports/heart-stroke-vascular-diseases/hsvd-facts/contents/all-heart-stroke-and-vascular-disease/coronary-heart-disease">https://www.aihw.gov.au/reports/heart-stroke-vascular-diseases/hsvd-facts/contents/all-heart-stroke-and-vascular-disease/coronary-heart-disease</a></li>
+      <li><em>A balanced diet</em> [Photograph]. (2020). IGA Supermarkets. <a href="https://www.iga.com.au/iga-community/a-balanced-diet-what-is-it-and-how-to-achieve-it/">https://www.iga.com.au/iga-community/a-balanced-diet-what-is-it-and-how-to-achieve-it/</a></li>
+      <li>Cleveland Clinic. (2024, February 15). <em>Atherosclerosis</em>. <a href="https://my.clevelandclinic.org/health/diseases/16753-atherosclerosis-arterial-disease">https://my.clevelandclinic.org/health/diseases/16753-atherosclerosis-arterial-disease</a></li>
+      <li><em>Cold sweats</em> [Photograph]. (n.d.). Banner Health. <a href="https://www.bannerhealth.com/healthcareblog/teach-me/cold-and-clammy-causes-of-cold-sweats-and-how-to-treat-them">https://www.bannerhealth.com/healthcareblog/teach-me/cold-and-clammy-causes-of-cold-sweats-and-how-to-treat-them</a></li>
+      <li>Complete Anatomy. (2019, October 1). <em>Atherosclerosis | Pathologies</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=njT428_JYzI">https://www.youtube.com/watch?v=njT428_JYzI</a></li>
+      <li><em>Coronary artery stent</em> [Illustration]. (n.d.). Mayo Clinic. <a href="https://www.mayoclinic.org/tests-procedures/coronary-angioplasty/about/pac-20384761">https://www.mayoclinic.org/tests-procedures/coronary-angioplasty/about/pac-20384761</a></li>
+      <li>Demystifying Medicine McMaster. (2016, November 23). <em>Atherosclerosis: Prevention is the best medicine</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=QDp6Vehjn1Q">https://www.youtube.com/watch?v=QDp6Vehjn1Q</a></li>
+      <li><em>Energy and fatigue</em> [Photograph]. (n.d.). Harvard Health. <a href="https://www.health.harvard.edu/topics/energy-and-fatigue">https://www.health.harvard.edu/topics/energy-and-fatigue</a></li>
+      <li><em>Exercises for all shapes and sizes</em> [Photograph]. (n.d.). Raffles Medical Group. <a href="https://www.rafflesmedicalgroup.com/health-resources/health-articles/exercises-for-all-shapes-and-sizes-as-well-as-exercises-for-weight-gain/">https://www.rafflesmedicalgroup.com/health-resources/health-articles/exercises-for-all-shapes-and-sizes-as-well-as-exercises-for-weight-gain/</a></li>
+      <li><em>Ischemic stroke</em> [Illustration]. (n.d.). Mayo Clinic. <a href="https://www.mayoclinic.org/diseases-conditions/stroke/symptoms-causes/syc-20350113">https://www.mayoclinic.org/diseases-conditions/stroke/symptoms-causes/syc-20350113</a></li>
+      <li>Johns Hopkins Medicine. (n.d.). <em>Atherosclerosis</em>. <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/atherosclerosis">https://www.hopkinsmedicine.org/health/conditions-and-diseases/atherosclerosis</a></li>
+      <li><em>Laser angioplasty</em> [Illustration]. (n.d.). MediFee. <a href="https://www.medifee.com/surgery/angioplasty-surgery-in-india">https://www.medifee.com/surgery/angioplasty-surgery-in-india</a></li>
+      <li>Lilartsy. (n.d.). <em>Participants were asked if they preferred to continue smoking or to quit</em> [Photograph]. Unsplash. <a href="https://www.unimelb.edu.au/newsroom/news/2023/december/study-finds-one-fifth-of-australian-smokers-plan-to-keep-smoking">https://www.unimelb.edu.au/newsroom/news/2023/december/study-finds-one-fifth-of-australian-smokers-plan-to-keep-smoking</a></li>
+      <li>Mayo Clinic. (2024, September 20). <em>Arteriosclerosis/atherosclerosis</em>. <a href="https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/symptoms-causes/syc-20350569">https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/symptoms-causes/syc-20350569</a></li>
+      <li><em>Nausea</em> [Photograph]. (2025). Complete Care. <a href="https://www.visitcompletecare.com/blog/nausea-and-vomiting/">https://www.visitcompletecare.com/blog/nausea-and-vomiting/</a></li>
+      <li><em>Rotational atherectomy</em> [Illustration]. (n.d.). Heart Specialist International. <a href="https://heartspecialistintl.com.sg/rotational-atherectomy-what-patients-should-know/">https://heartspecialistintl.com.sg/rotational-atherectomy-what-patients-should-know/</a></li>
+      <li><em>Tingling and numbness</em> [Photograph]. (2025). St. Hope Healthcare. <a href="https://www.offeringhope.org/blog/shouldnt-ignore-numbness-or-tingling-in-your-hands-or-feet">https://www.offeringhope.org/blog/shouldnt-ignore-numbness-or-tingling-in-your-hands-or-feet</a></li>
+      <li><em>Understanding the different types of chest pain</em> [Photograph]. (n.d.). ER of Texas. <a href="https://www.eroftexas.com/understanding-the-different-types-of-chest-pain/">https://www.eroftexas.com/understanding-the-different-types-of-chest-pain/</a></li>
+      <li>Victor Chang Cardiac Research Institute. (2025, July 19). <em>Atherosclerosis</em>. <a href="https://www.victorchang.edu.au/heart-disease/atherosclerosis">https://www.victorchang.edu.au/heart-disease/atherosclerosis</a></li>
+      <li>World Health Organization. (2025, July 31). <em>Cardiovascular diseases (CVDs)</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)">https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" data-nocount>
+  <a href="#top" aria-label="Back to top">&uarr;</a>
+</footer>
+
+</body>
+</html>
